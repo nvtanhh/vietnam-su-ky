@@ -25,6 +25,7 @@ class _IntroScreenState extends State<IntroScreen> {
   late final PageController _pageController = PageController()..addListener(_handlePageChanged);
   final ValueNotifier<int> _currentPage = ValueNotifier(0);
   bool get _isOnLastPage => _currentPage.value.round() == pageData.length - 1;
+
   @override
   void dispose() {
     _pageController.dispose();

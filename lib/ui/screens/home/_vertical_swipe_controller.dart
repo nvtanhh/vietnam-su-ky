@@ -52,17 +52,18 @@ class _VerticalSwipeController {
 
   /// Utility method to wrap a gesture detector and wire up the required handlers.
   Widget wrapGestureDetector(Widget child, {Key? key}) => GestureDetector(
-      key: key,
-      excludeFromSemantics: true,
-      onTapDown: (_) => handleTapDown(),
-      onTapUp: (_) => handleTapCancelled(),
-      onVerticalDragUpdate: handleVerticalSwipeUpdate,
-      onVerticalDragEnd: (_) => handleVerticalSwipeCancelled(),
-      onVerticalDragCancel: handleVerticalSwipeCancelled,
-      behavior: HitTestBehavior.translucent,
-      child: child);
+        key: key,
+        excludeFromSemantics: true,
+        onTapDown: (_) => handleTapDown(),
+        onTapUp: (_) => handleTapCancelled(),
+        onVerticalDragUpdate: handleVerticalSwipeUpdate,
+        onVerticalDragEnd: (_) => handleVerticalSwipeCancelled(),
+        onVerticalDragCancel: handleVerticalSwipeCancelled,
+        behavior: HitTestBehavior.translucent,
+        child: child,
+      );
 
-  void dispose(){
+  void dispose() {
     swipeAmt.dispose();
     isPointerDown.dispose();
     swipeReleaseAnim.dispose();

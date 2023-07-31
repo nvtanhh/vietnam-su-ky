@@ -49,15 +49,16 @@ class _AppPageIndicatorState extends State<AppPageIndicator> {
             valueListenable: _currentPage,
             builder: (_, value, child) {
               return Semantics(
-                  liveRegion: true,
-                  focusable: false,
-                  readOnly: true,
-                  label: $strings.appPageSemanticSwipe(
-                    widget.semanticPageTitle,
-                    (_controllerPage % (widget.count) + 1),
-                    widget.count,
-                  ),
-                  child: Container());
+                liveRegion: true,
+                focusable: false,
+                readOnly: true,
+                label: $strings.appPageSemanticSwipe(
+                  widget.semanticPageTitle,
+                  (_controllerPage % (widget.count) + 1),
+                  widget.count,
+                ),
+                child: Container(),
+              );
             }),
       ),
       Positioned.fill(

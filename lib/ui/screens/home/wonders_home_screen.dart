@@ -123,28 +123,30 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       _fadeInOnNextBuild = false;
     }
 
-    return _swipeController.wrapGestureDetector(Container(
-      color: $styles.colors.black,
-      child: Stack(
-        children: [
-          Stack(
-            children: [
-              /// Background
-              ..._buildBgAndClouds(),
+    return _swipeController.wrapGestureDetector(
+      Container(
+        color: $styles.colors.black,
+        child: Stack(
+          children: [
+            Stack(
+              children: [
+                /// Background
+                ..._buildBgAndClouds(),
 
-              /// Wonders Illustrations (main content)
-              _buildMgPageView(),
+                /// Wonders Illustrations (main content)
+                _buildMgPageView(),
 
-              /// Foreground illustrations and gradients
-              _buildFgAndGradients(),
+                /// Foreground illustrations and gradients
+                _buildFgAndGradients(),
 
-              /// Controls that float on top of the various illustrations
-              _buildFloatingUi(),
-            ],
-          ).animate().fadeIn(),
-        ],
+                /// Controls that float on top of the various illustrations
+                _buildFloatingUi(),
+              ],
+            ).animate().fadeIn(),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   @override
@@ -181,6 +183,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       // Background
       ..._wonders.map((e) {
         final config = WonderIllustrationConfig.bg(isShowing: _isSelected(e.type));
+
         return WonderIllustration(e.type, config: config);
       }).toList(),
       // Clouds
